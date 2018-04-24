@@ -1,0 +1,121 @@
+body{
+	color:black;
+	font-family: Jua;	
+	margin: 1em 6em 0em 6em;
+}
+
+.container{
+	text-align: center;
+	background-color: rgb(210,210,210);
+	padding: 1em;
+	border-radius: 5px;
+}
+
+.wrapper{
+	border-radius: 5px;
+	background-color: whitesmoke;
+	padding: 1em;
+}
+
+.button{
+	cursor: pointer;
+	padding: 1em;
+	color: white;
+	border-radius: 5px;
+	border:none;
+	margin: 5px;
+	
+}
+
+.titlequestion{
+	letter-spacing: 1px;
+	text-shadow: -2px -2px 10px grey;
+}
+h1{
+	color: white;
+	text-shadow: 2px 2px 5px grey;	
+}
+hr{
+	height: 1px;
+	color: white;
+}
+.questionwrapper{
+	border-radius: 5px;
+	color: white;
+	font-size: 20px;
+	text-shadow: 2px 1px grey;
+	padding: 1em;
+	margin: 1em;
+	background-color: rgb(220,220,220);
+}
+.buttonwrapper{
+	padding: 1em;
+}
+.true-button{
+	background-color: green;
+	border-bottom: 5px solid #01660B;
+}
+.true-button:hover{
+	background-color: #099D02;
+}
+.true-button:active{
+	transform: translateY(1px);
+	box-shadow: 1px 2px 10px grey;
+}
+.false-button:active{
+	transform: translateY(1px);
+	box-shadow: 1px 2px 10px grey;
+}
+.false-button{
+	border-bottom: 5px solid #AB0000;
+	background: #900303;
+}
+.false-button:hover{
+	background-color: #BA0000;
+}
+
+.rebutton{
+	position: absolute;
+	background-color: #0950A0;
+	border-bottom: 5px solid #042988;
+	top: 5px;
+	left: 5px;
+	text-shadow: 2px 2px 5px grey;
+}
+
+.rebutton:hover{
+	background: #0F3CE4;
+}
+
+.counter{
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	color: white;
+	font-size: 30px;
+	background: #0F3CE4;
+	border-radius: 5px;
+	padding: 5px;	
+	border-bottom: 5px solid #011A88;
+}
+/*
+.marker{
+	position: absolute;
+	top: 10px;
+	right: 80px;
+	background: #0528C0;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+.markersign{
+	background: white;
+	color: blue;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.markersign td{
+	padding: 4px;
+	border-radius: 2px;
+}*/
