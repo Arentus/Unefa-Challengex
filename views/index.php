@@ -7,7 +7,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
 </head>
 <body>
-	<button id="reset" class="rebutton button true-button">Reiniciar</button>
+	<button id="reset" class="rebutton button">Reiniciar</button>
 	
 	<div class="counter">
 		0 pts	
@@ -23,14 +23,11 @@
 			</div>
 			
 				<div class="buttonwrapper">
-					<hr>
-					<div id="trueq" class="button true-button">
-					True
-					</div>
 					
-					<div id="falseq" class="button false-button">
-					Falso
-					</div>
+					<button id="trueanswer" value="true" class="button true-button" > Verdadero</button>
+					
+					<button id="falseanswer" value="false" class="button false-button">Falso</button>
+					
 				</div>
 
 		</div>
@@ -49,5 +46,24 @@
 		</table>
 	</div>
 	-->
+
+	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+	<script type="text/javascript">
+		$.get("user.php",
+		function( resp ){
+			$("#reset").click(function(){
+
+
+				
+
+				//carga de un archivo 
+				//$(".newcontent").load("loadedfile.html");
+				//establecer un nuevo html con lo que devuelva el archivo user.php
+				//$("#trueq").html(resp);
+			});
+		});
+
+		
+	</script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 body{
 	color:black;
-	font-family: Jua;	
+	font-family: Jua !important;	
 	margin: 1em 6em 0em 6em;
 }
 
@@ -18,13 +18,14 @@ body{
 }
 
 .button{
+	font-size: 15px;
+	font-family: Jua;
 	cursor: pointer;
 	padding: 1em;
 	color: white;
 	border-radius: 5px;
 	border:none;
 	margin: 5px;
-	
 }
 
 .titlequestion{
@@ -52,6 +53,7 @@ hr{
 	padding: 1em;
 }
 .true-button{
+	width: 100%;
 	background-color: green;
 	border-bottom: 5px solid #01660B;
 }
@@ -67,11 +69,16 @@ hr{
 	box-shadow: 1px 2px 10px grey;
 }
 .false-button{
+	width: 100%;
 	border-bottom: 5px solid #AB0000;
 	background: #900303;
 }
 .false-button:hover{
-	background-color: #BA0000;
+	background-color: #EB0707;
+}
+
+.false-button:active{
+	background: #AB0000;
 }
 
 .rebutton{
