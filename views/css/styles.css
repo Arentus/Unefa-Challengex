@@ -12,11 +12,24 @@ h1{
 }
 .container{
 	cursor: pointer;
+	background: #ECECEC;
 	text-align: center;
 	padding: 1em;
 	border-radius: 5px;
 }
-
+.startbutton{
+	cursor: pointer;
+	border-radius: 5px;
+	padding: 15px;
+	color: white;
+	background-color: #2E74E7;
+	border:1px solid #1432B2;
+	transition: all 0.5s ease;
+}
+.startbutton:hover{
+	background: #0522B7;
+	transform: translateY(5px);	
+}
 .wrapper{
 	border-radius: 5px;
 	background-color: whitesmoke;
@@ -45,7 +58,7 @@ h1{
 }
 
 .titlequestion{
-	font-family: Giorgia;
+	font-family: Jua!important;
 	color: white;
 	letter-spacing: 1px;
 	text-shadow: -2px -2px 10px grey;

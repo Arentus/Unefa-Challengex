@@ -13,11 +13,12 @@
 			<h1>Responde la siguiente pregunta:</h1>
 			
 			<div class="counter">
-				0 pts	
+				<span id="number">0</span> pts
 			</div>
 
 			<div class="questionwrapper">
-				<span class="titlequestion"></span>
+				<span class="titlequestion">Bienvenido a Challenge Unefa</span>
+				<button class="start startbutton">Start</button>
 				<div class="bar">
 				</div>
 			</div>
@@ -25,9 +26,9 @@
 				
 				<div class="buttonwrapper">
 					
-					<button id="trueanswer" value="true" class="button true-button" > True</button>
+					<button id="trueanswer" value="1" class="button true-button" > True</button>
 					
-					<button id="falseanswer" value="false" class="button false-button">False</button>
+					<button id="falseanswer" value="0" class="button false-button">False</button>
 					
 				</div>
 			
@@ -57,32 +58,52 @@
 	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
+
 			$.get( "questions.php", function( response ) {
 			    
 			    var questions = JSON.parse(response); //objto de questions
 			    var questions_array = jQuery.makeArray(questions); //array de questions 
+				var nroPreguntas = Object.keys(questions).length/2;
+				var score = 0;
+				var nb_question = 0;
 
-			    $(".titlequestion").html(questions.question1);
+					$(".start").one("click",function(){
 
-			    //alert("Esta vez responderas "+Object.keys(questions).length/2+" preguntas!");
+						$(this).remove();
 
-			    // nro de prguntas
-			    // valor ingresado por el usuario
-			    // preguntas y respuestas
-				// el puntaje
-				// la pregunta actual
+						nb_question = generar_nro_question(nroPreguntas);	
+						
+						$(".titlequestion").html(questions_array[0]['question'+nb_question]);
+					});
 
+					$( ".button").click(function( event ) {
 
+						var respuesta_correcta = questions_array[0]['answer'+nb_question];
+						var valor_u = $(this).attr("value");
+						comprobar_respuesta(valor_u,respuesta_correcta);
+						nb_question = generar_nro_question(nroPreguntas);
+						$(".titlequestion").html(questions_array[0]['question'+nb_question]);
+					});
 
+				function comprobar_respuesta( valor_u , respuesta_correcta ){
+					if (valor_u == respuesta_correcta) {
+						++score;
+						$(".newcontent").html("Correcta!");		
+						$("#number").html(score);
+					}else{
+						$(".newcontent").html("Incorrecta!");
+					}	
+				}
 
-
-
-				console.log(questions);
-				console.log(questions_array);
+				function generar_nro_question(nroPreguntas){
+					return nb_question = Math.floor((Math.random() * nroPreguntas) + 1);
+				}
+			
 			});
+
 		});
 
-			/*alert('Bienvenido a Challenge Unefa! Tendras que responder varias preguntas de verdadero y falso y si sacas mas de 15 puntos ganas! Suerte! :D');*/
+			
 	</script>
 </body>
 </html>
