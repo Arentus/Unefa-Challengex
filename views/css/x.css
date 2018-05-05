@@ -1,0 +1,107 @@
+body{
+	background-image: url('../img/img1-bg.jpg');
+	background-clip: padding-box;
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-family: arial;
+	color: white;
+	font-family: Comfortaa;
+	padding: 0em 3em;
+}
+.container{
+	font-size: 20px;
+	border-radius: 2px;
+	text-align: center;
+	text-shadow: 2px 1px grey;
+	padding: 2em;
+	margin: 1em;
+	background-color: rgba(22,22,22,0.3);
+	transition: all 1s ease;
+}
+.alert{
+	background-color: #F4C1C1;
+	border:1px solid red;
+	padding: 0.4em;
+	border-radius: 5px;
+}
+
+.category-button{
+	outline-width: 0;
+	background: #000 !important;
+	border-radius: 5px;
+	width: 35%;
+}
+#card{
+	background-color: black;
+	font-family: arial;
+	color: white;
+}
+#card-game{
+	text-align: center;
+}
+#card-game h4{
+	color: white;
+	text-shadow: 4px 1px 2px black;
+
+}
+.wrapper-input{
+	margin: 0em 5em;
+}
+.button{
+	font-size: 15px;
+	font-family: Jua;
+	cursor: pointer;
+	padding: 1em;
+	color: white;
+	font-family: comfortaa;
+	border-radius: 5px;
+	border:none;
+	margin: 5px;
+}
+.true-button{
+	width: 100%;
+	background-color: #30CE0B;
+	border-bottom: 5px solid #06C513;
+	transition: background-color 0.5s;
+}
+.true-button:hover{
+	background-color: #12A303;
+}
+.login-button{
+	margin: 5em;
+}
+.nickname-input{
+	font-size: 30px;
+	font-family: comfortaa;
+	border-radius: none !important;
+	background-color: transparent;
+	border-bottom: 2px solid blue;
+	transition: all 0.5s ease-in-out;
+}
+.nickname-input:checked{
+	color: white;
+}
+.nickname-input:hover{
+	color: white;
+	border-bottom: 4px solid blue;
+}
+.nickname-input:focus{
+	color: white;
+	outline-width: 0;
+}
+input{
+	width: 100%;
+	margin-bottom: 10px;
+	border: none;
+	cursor: pointer;
+	text-align: center;
+	padding: 5px;
+	padding: 1em 0em;
+}
+
+footer{
+	font-family: arial !important;
+}
+#button{
+
+}

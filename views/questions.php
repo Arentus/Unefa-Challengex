@@ -1,6 +1,6 @@
 <?php 
 	include_once '../db/db.php';
-	
+
 	function get_questions(){
 
 		$db = new DB();
@@ -16,11 +16,12 @@
 		$i=1;
 
 		while($row = $result->fetch_assoc()){
+			
 			foreach ($row as $key => $value) {
 				$questions[$key.$i] = $value;
 			}
+			
 			$i++;
-		
 		}
 		return json_encode($questions);
 	}
