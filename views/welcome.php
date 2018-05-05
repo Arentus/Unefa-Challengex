@@ -1,4 +1,18 @@
 <?php session_start(); ?>
+<?php 
+		include_once '../db/db.php';
+		
+		function get_categories(){
+			$db = new DB();
+			$connection = $db->get_db();
+		
+			$sql = "SELECT * FROM categories";
+			return $result = $connection->query($sql);
+		}
+
+		
+		$categories = get_categories();
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,13 +48,22 @@
 
 			<div class="categories">
 				<h3>Selecciona tu categoria</h3>
-					<input class="category-button" type="radio" name="category" value="informatica">
-					<input class="category-button" type="radio" name="category" value="fisica"> 
-					<input class="category-button" type="radio" name="category" value="matematica">
+
+				<select class="category-select" name="category">
+				<?php 
+					while($row = $categories->fetch_assoc()){
+						echo '<option value = "'.$row['name'].'">';
+						echo $row['name'];
+						echo '</option>';
+					}
+				 ?>
+			</select>
 			</div>
 		</form>	
 		<footer>
-			<button>Agrega mas preguntas y gana puntos! :D</button>
+			<form method="POST" action="question_creator.php">
+				<button id="add_question">Agrega mas preguntas y gana puntos! :D</button>
+			</form>
 		</footer>
 	</div>
 </body>

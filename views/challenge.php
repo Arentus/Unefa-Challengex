@@ -3,7 +3,9 @@
 	if (isset($_POST['submit'])) {
 		include_once '../db/db.php';
 		
+
 		$name = trim($_POST['user']);
+		$category = $_POST['category'];
 
 		function comprobar_usuario($name){
 			$db = new DB();
@@ -33,10 +35,14 @@
 	<link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
 </head>
 <body>
-	<div>Jugador: <?php echo ucfirst($name) ?></div>
+	<div>Jugador: <?php echo ucfirst($name); ?>
+		Categoria:
+		<?php echo ucfirst($category);?>
+		 </div>
 	<div class="container">
 
 		<div class="wrapper">
+
 			<h1>Responde la siguiente pregunta:</h1>
 			<div class="barra-vida">
 				
@@ -155,7 +161,7 @@
 					}else{
 						$(".newcontent").html("Incorrecta!");
 					}
-					
+
 					$(".newcontent2").html("Pregunta Nro "+i);	
 				}
 

@@ -25,12 +25,19 @@ body{
 	border-radius: 5px;
 }
 
-.category-button{
+.category-select{
 	outline-width: 0;
-	background: #000 !important;
-	border-radius: 5px;
-	width: 35%;
+	border-style: none;
+	width: 100%;
+	padding: 15px;
+	margin-bottom: 5px;
+	cursor: pointer;
 }
+
+.category-button:hover{
+	background: #0C6BBB;
+}
+
 #card{
 	background-color: black;
 	font-family: arial;
@@ -102,6 +109,4 @@ input{
 footer{
 	font-family: arial !important;
 }
-#button{
 
-}
