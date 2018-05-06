@@ -1,5 +1,7 @@
 <?php session_start();?>
-<?php include_once 'includes/comp_user.php'; ?>
+<?php include_once 'includes/comp_user.php';
+	comprobar_usuario($name);
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +12,7 @@
 </head>
 <body>
 
-				<span class="player-card">Jugador: <?php echo ucfirst($name); ?></span>
-	
+	<span class="player-card">Jugador: <?php echo ucfirst($name); ?></span>
 	<div class="counter">
 		<span id="number">0</span> pts
 	</div>
@@ -36,9 +37,31 @@
 					<button id="falseanswer" value="0"' class="button false-button">Falso</button>
 				</div>
 		</div>
-		
+			
+
+
 	</div>
-	
+	<div class="father">
+		<div class="alert alert_winner">
+			<h3>Felicidades haz ganado!!</h3>
+			<div class="check_mark">
+			 <div class="sa-icon sa-success animate">
+			    <span class="sa-line sa-tip animateSuccessTip"></span>
+			    <span class="sa-line sa-long animateSuccessLong"></span>
+			    <div class="sa-placeholder"></div>
+			    <div class="sa-fix"></div>
+			  </div>
+			</div>
+			<button class="ir_ranking">Ver Tabla de Posiciones</button>
+		</div>
+
+		<div class="alert alert_loser">
+			Lo Siento, Haz perdido.
+			<img id="img" src="img/sad.png">
+			<button class="ir_ranking">Ver Tabla de Posiciones</button>
+		</div>
+	</div>
+
 	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -46,6 +69,7 @@
 			$.get( "questions.php?category=<?php echo $category?>", function( response ) {
 			    
 			    $('.buttonwrapper').hide();
+			    $('.alert').hide();
 
 			    var questions = JSON.parse(response); //objto de questions
 			    var questions_array = jQuery.makeArray(questions); //array de questions 
@@ -84,7 +108,29 @@
 						s = 25;
 						temp_question = setInterval(add_new_question,25000);	
 						counter = setInterval(rest,1000);
+
 					}else if(i == 11){
+
+						if (score > 5) {
+
+							$(".alert_winner").fadeIn("slow",function(){
+								$(".sa-success").addClass("hide");
+								  setTimeout(function() {
+								    $(".sa-success").removeClass("hide");
+								  }, 10);
+							});
+
+							$('.ir_ranking').click(function(){
+								window.location.href = "positions.php"+"?score="+score+"&id="+<?php echo $_SESSION['user_id']?>;
+							});
+						}else{
+							$(".alert_loser").fadeIn("slow");
+
+							$('.ir_ranking').click(function(){
+
+								window.location.href = "positions.php"+"?score="+score+"&id="+<?php echo $_SESSION['user_id']?>;
+							});
+						}
 
 					}
 				});
@@ -141,6 +187,7 @@
 				let s = 25;
 				let counter = setInterval(rest,1000);
 				});
+
 			});
 		});			
 	</script>
