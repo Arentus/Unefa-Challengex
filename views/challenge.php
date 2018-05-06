@@ -1,31 +1,5 @@
 <?php session_start();?>
-<?php 
-	if (isset($_POST['submit'])) {
-		include_once '../db/db.php';
-		
-
-		$name = trim($_POST['user']);
-		$category = $_POST['category'];
-
-		function comprobar_usuario($name){
-			$db = new DB();
-			$connection = $db->get_db();
-		
-			$sql = "SELECT * FROM users where name = '$name'";
-			$result = $connection->query($sql);
-			
-			if ($result->num_rows == 0) {
-				$sql = "INSERT INTO users (name,score) VALUES('$name',0)";
-				$connection->query($sql);
-			}
-		}
-		comprobar_usuario($name);
-	}else{
-		$_SESSION['message'] = 'Necesitas loguearte primero antes de entrar';
-		header('Location: welcome.php');
-	}
-	
- ?>
+<?php include_once 'includes/comp_user.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,27 +9,21 @@
 	<link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
 </head>
 <body>
-	<div>Jugador: <?php echo ucfirst($name); ?>
-		Categoria:
-		<?php echo ucfirst($category);?>
-		 </div>
+
+				<span class="player-card">Jugador: <?php echo ucfirst($name); ?></span>
+	
+	<div class="counter">
+		<span id="number">0</span> pts
+	</div>
+
 	<div class="container">
-
+	
 		<div class="wrapper">
-
-			<h1>Responde la siguiente pregunta:</h1>
-			<div class="barra-vida">
-				
-			</div>
-
-			<div class="counter">
-				<span id="number">0</span> pts
-			</div>
-
-			<div class="newcontent2">
-			</div>	
-			<div id="timer">	
-			</div>
+			<h2>Responde las siguientes preguntas:</h2>
+			<span class="real_answer"></span>
+			<span id="timer" class="timer"></span>
+			
+			<span class="newcontent2"></span>
 			<div class="questionwrapper">
 				<span class="titlequestion">Bienvenido <?php echo ucfirst($_POST['user']) ?> a Challenge Unefa</span>
 				<button class="start startbutton">Aceptar el Desafio!</button>
@@ -67,17 +35,15 @@
 					<button id="trueanswer" value="1" class="button true-button" >Verdadero</button>
 					<button id="falseanswer" value="0"' class="button false-button">Falso</button>
 				</div>
-			<div class="newcontent">
-				
-			</div>
 		</div>
-			
+		
 	</div>
 	
 	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$.get( "questions.php", function( response ) {
+			
+			$.get( "questions.php?category=<?php echo $category?>", function( response ) {
 			    
 			    $('.buttonwrapper').hide();
 
@@ -115,8 +81,8 @@
 						/*---------------------
 						reinicia el temporizador
 						*//////////////////////
-						s = 5;
-						temp_question = setInterval(add_new_question,6000);	
+						s = 25;
+						temp_question = setInterval(add_new_question,25000);	
 						counter = setInterval(rest,1000);
 					}else if(i == 11){
 
@@ -147,7 +113,7 @@
 					s--;
 					// cuando el temporizador llega a 0 se reinician los segundos
 					if (s == -1) {
-						s = 5;
+						s = 25;
 					}
 				}
 
@@ -156,10 +122,10 @@
 					if (valor_u == respuesta_correcta) {
 						++score;
 
-						$(".newcontent").html("Correcta!");		
+						$(".real_answer").html("Correcta!");		
 						$("#number").html(score);
 					}else{
-						$(".newcontent").html("Incorrecta!");
+						$(".real_answer").html("Incorrecta!");
 					}
 
 					$(".newcontent2").html("Pregunta Nro "+i);	
@@ -171,8 +137,8 @@
 				}
 
 				//inicia el temporizador
-				let temp_question = setInterval(add_new_question,6000);
-				let s = 5;
+				let temp_question = setInterval(add_new_question,25000);
+				let s = 25;
 				let counter = setInterval(rest,1000);
 				});
 			});

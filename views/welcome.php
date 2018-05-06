@@ -52,7 +52,7 @@
 				<select class="category-select" name="category">
 				<?php 
 					while($row = $categories->fetch_assoc()){
-						echo '<option value = "'.$row['name'].'">';
+						echo '<option value = "'.$row['id'].'">';
 						echo $row['name'];
 						echo '</option>';
 					}

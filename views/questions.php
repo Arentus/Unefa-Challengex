@@ -3,12 +3,17 @@
 
 	function get_questions(){
 
+
 		$db = new DB();
 
 		$connection = $db->get_db();
 
-		$sql = "SELECT question,answer FROM questions";
-		
+		if (isset($_GET['category'])) {
+			$category = $_GET['category'];
+			$sql = "SELECT question,answer FROM questions where category_id = $category";
+		}else{
+			$sql = "SELECT question,answer FROM questions where category_id = 1";
+		}
 		$result = $connection->query($sql);
 		
 		$questions = array();

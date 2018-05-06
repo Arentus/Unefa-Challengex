@@ -1,5 +1,9 @@
+
 body{
+	margin-top: 0;
+	padding-top: 0;
 	color:black;
+	background-image: url('../img/img-background.jpeg');
 	font-family: Jua !important;
 }
 @media (min-width: 500px){
@@ -10,11 +14,39 @@ body{
 h1{
 	font-family: Calibri;
 }
+.player-card{
+	width: 30%;
+	border-radius: 6px;
+	padding: 1px;
+	background-color: white;
+}
+
+.real_answer{
+	width: 30%;
+	padding: 1px;
+	border-radius: 5px;
+	background-color: white;
+}
+
+.timer{
+	position: absolute;
+	top: 100px;
+	font-family: Impact;
+	right: 10px;
+	color: white;
+	font-size: 30px;
+	background: #0F3CE4;
+	border-radius: 10px;
+	padding: 5px;	
+	border-bottom: 5px solid #011A88;
+}
+
 .container{
+	margin-top: 5px;
 	cursor: pointer;
 	background: #ECECEC;
 	text-align: center;
-	padding: 1em;
+	padding: 0.5em;
 	border-radius: 5px;
 }
 .startbutton{
@@ -116,7 +148,7 @@ h1{
 
 .counter{
 	position: absolute;
-	top: 10px;
+	top: 40px;
 	font-family: Impact;
 	right: 10px;
 	color: white;
@@ -128,35 +160,10 @@ h1{
 }
 
 .newcontent2{
-	position: absolute;
-	top: 10px;
-	font-family: Impact;
-	right: 100px;
-	color: white;
-	font-size: 30px;
-	background: #0F3CE4;
-	border-radius: 10px;
-	padding: 5px;	
-	border-bottom: 5px solid #011A88;
-}
-/*
-.marker{
-	position: absolute;
-	top: 10px;
-	right: 80px;
-	background: #0528C0;
+	background-color: white;
 	padding: 5px;
-	border-radius: 5px;
+}
+.board{
+	display: inline;
 }
 
-.markersign{
-	background: white;
-	color: blue;
-	padding: 10px;
-	border-radius: 5px;
-}
-
-.markersign td{
-	padding: 4px;
-	border-radius: 2px;
-}*/
